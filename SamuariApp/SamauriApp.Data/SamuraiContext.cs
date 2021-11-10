@@ -1,0 +1,21 @@
+﻿using Microsoft.EntityFrameworkCore;
+using SamuariApp.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SamauriApp.Data
+{
+    class SamuraiContext:DbContext
+    {
+        public DbSet<Samurai> Samurais { get; set; }
+        public DbSet<Quote> Quotes { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source= (localdb)\\MSQLLocalDB; Initial Catalog=SamuraiAppData");
+        } 
+    }
+}
